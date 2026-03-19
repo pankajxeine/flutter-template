@@ -1,48 +1,90 @@
-import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
 
-/// Enum for different theme palettes
-enum AppThemePalette {
-  classic('Classic', 'Modern blue-grey theme'),
-  nature('Nature', 'Fresh teal and ocean tones'),
-  sunset('Sunset', 'Warm orange and purple tones');
+class ThemeOption {
+  const ThemeOption({
+    required this.name,
+    required this.light,
+    required this.dark,
+  });
+  final String name;
+  final ColorScheme light;
+  final ColorScheme dark;
+}
 
-  const AppThemePalette(this.title, this.description);
+class AppThemePalette {
+  static final options = <ThemeOption>[
+    ThemeOption(
+      name: 'Zinc',
+      light: LegacyColorSchemes.lightZinc(),
+      dark: LegacyColorSchemes.darkZinc(),
+    ),
+    ThemeOption(
+      name: 'Blue',
+      light: LegacyColorSchemes.lightBlue(),
+      dark: LegacyColorSchemes.darkBlue(),
+    ),
+    ThemeOption(
+      name: 'Green',
+      light: LegacyColorSchemes.lightGreen(),
+      dark: LegacyColorSchemes.darkGreen(),
+    ),
+    ThemeOption(
+      name: 'Red',
+      light: LegacyColorSchemes.lightRed(),
+      dark: LegacyColorSchemes.darkRed(),
+    ),
+    ThemeOption(
+      name: 'Neutral',
+      light: LegacyColorSchemes.lightNeutral(),
+      dark: LegacyColorSchemes.darkNeutral(),
+    ),
+    ThemeOption(
+      name: 'orange',
+      light: LegacyColorSchemes.lightOrange(),
+      dark: LegacyColorSchemes.darkOrange(),
+    ),
+    ThemeOption(
+      name: 'stone',
+      light: LegacyColorSchemes.lightStone(),
+      dark: LegacyColorSchemes.darkStone(),
+    ),
+    ThemeOption(
+      name: 'yellow',
+      light: LegacyColorSchemes.lightYellow(),
+      dark: LegacyColorSchemes.darkYellow(),
+    ),
+    ThemeOption(
+      name: 'violet',
+      light: LegacyColorSchemes.lightViolet(),
+      dark: LegacyColorSchemes.darkViolet(),
+    ),
+    ThemeOption(
+      name: 'rose',
+      light: LegacyColorSchemes.lightViolet(),
+      dark: LegacyColorSchemes.darkViolet(),
+    ),
+    ThemeOption(
+      name: 'slate',
+      light: LegacyColorSchemes.lightSlate(),
+      dark: LegacyColorSchemes.darkSlate(),
+    ),
+  ];
+}
+
+enum AppThemePaletteEnum {
+  zinc('Zinc', 'Neutral grey tones with subtle warmth'),
+  blue('Blue', 'Clean blue with bold secondary accents'),
+  green('Green', 'Fresh green with vibrant highlights'),
+  red('Red', 'Bold red with deep contrast'),
+  neutral('Neutral', 'Soft neutral tones for a calm look'),
+  orange('Orange', 'Warm orange with rich undertones'),
+  stone('Stone', 'Warm stone tones with muted contrast'),
+  yellow('Yellow', 'Bright yellow with subtle warmth'),
+  violet('Violet', 'Deep violet with rich undertones'),
+  rose('Rose', 'Soft rose tones with gentle contrast'),
+  slate('Slate', 'Cool slate tones with muted contrast');
+
+  const AppThemePaletteEnum(this.title, this.description);
   final String title;
   final String description;
-
-  /// Get the seed color for this palette
-  Color get seedColor {
-    switch (this) {
-      case AppThemePalette.classic:
-        return const Color(0xFF546E7A); // Blue Grey
-      case AppThemePalette.nature:
-        return const Color(0xFF00838F); // Teal
-      case AppThemePalette.sunset:
-        return const Color(0xFFFF7043); // Deep Orange
-    }
-  }
-
-  /// Get the icon for this palette
-  IconData get icon {
-    switch (this) {
-      case AppThemePalette.classic:
-        return Icons.palette_outlined;
-      case AppThemePalette.nature:
-        return Icons.eco_outlined;
-      case AppThemePalette.sunset:
-        return Icons.wb_sunny_outlined;
-    }
-  }
-
-  /// Get a preview color for the palette
-  Color get previewColor {
-    switch (this) {
-      case AppThemePalette.classic:
-        return const Color(0xFF78909C);
-      case AppThemePalette.nature:
-        return const Color(0xFF26A69A);
-      case AppThemePalette.sunset:
-        return const Color(0xFFFF8A65);
-    }
-  }
 }

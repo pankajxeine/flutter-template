@@ -1,4 +1,4 @@
-name: block_app
+name: forui_template
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -35,20 +35,22 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  assorted_layout_widgets: ^11.0.0
   flutter_bloc: ^9.1.1
-  go_router: ^17.0.1
-  intl: ^0.20.2
-  intl_utils: ^2.8.13
-  logger: ^2.6.2
   bloc_concurrency: ^0.3.0
-  flutter_form_builder: ^10.2.0
-  form_builder_validators: ^11.2.0
+  flutter_form_builder: ^10.3.0+1
+  form_builder_validators: ^11.3.0
+  go_router: ^17.1.0
+  auto_route: ^11.1.0
   shared_preferences: ^2.5.4
   get_storage: ^2.1.1
-  auto_route: ^11.1.0
+  logger: ^2.6.2
   equatable: ^2.0.8
-  talker: ^5.1.13
-  sidebarx: ^0.17.2
+  flutter_svg: ^2.2.3
+  fl_chart: ^1.1.1
+  shadcn_flutter: ^0.0.50
+  async: ^2.13.0
+  easy_date_timeline: ^2.0.9
 
 dev_dependencies:
   flutter_test:
@@ -60,8 +62,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
-  build_runner: ^2.10.5
 
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
 flutter_secure_storage:
   enabled: true
   class_name: SecureStorage
@@ -69,12 +72,9 @@ flutter_secure_storage:
 
 flutter_intl:
   enabled: true
-  template-arb-file: lib/app/i10n/intl_en.arb
+  template-arb-file: lib/i10n/intl_en.arb
   output-localization-file: l10n.dart
   output-class: S
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -83,6 +83,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   generate: true
+
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

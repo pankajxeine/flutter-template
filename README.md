@@ -1,4 +1,4 @@
-# block_app
+# forui_template
 
 A new Flutter project.
 

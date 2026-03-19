@@ -1,26 +1,12 @@
-import 'package:flutter/material.dart';
+import 'package:shadcn_flutter/shadcn_flutter.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'app/presentation/widgets/web_back_button_disabler.dart';
+import 'core/widgets/web_back_button_disabler.dart';
+// import 'core/theme/app_theme.dart';
+import 'core/theme/bloc/theme_bloc.dart';
 
-// import '../data/repository/account_repository.dart';
-// import '../data/repository/authority_repository.dart';
-// import '../data/repository/login_repository.dart';
-// import '../data/repository/menu_repository.dart';
-// import '../presentation/common_blocs/account/account.dart';
-// import '../presentation/common_blocs/authority/authority_bloc.dart';
-
-import 'app/routes/go_router_routes/app_go_router_config.dart';
-import 'core/blocks/theme/theme_bloc.dart';
-// import '../presentation/common_widgets/drawer/drawer_bloc/drawer_bloc.dart';
-import 'app/presentation/screens/login/bloc/login.dart';
-import 'core/theme/app_theme.dart';
-
-/// Main application widget. This widget is the root of your application.
-///
-/// It is configured to provide a [ThemeData] based on the current
-/// ThemeBloc state and to provide a [MaterialApp] with the
-/// theme management through ThemeBloc.
-///
+import 'routes/app_go_router_config.dart';
+import 'auth/login/bloc/login.dart';
 
 class App extends StatelessWidget {
   final String language;
@@ -66,21 +52,16 @@ class App extends StatelessWidget {
         debugPrint(
           "Main App: ThemeBloc state - isDarkMode: ${themeState.isDarkMode}, palette: ${themeState.palette}",
         );
-        // Use ThemeBloc's isDarkMode instead of system brightness
-        final brightness = themeState.isDarkMode
-            ? Brightness.dark
-            : Brightness.light;
-        final currentTheme = brightness == Brightness.light
-            ? AppTheme.light(themeState.palette)
-            : AppTheme.dark(themeState.palette);
+        ThemeData activeTheme = themeState.isDarkMode
+            ? ThemeData.dark()
+            : ThemeData();
 
-        debugPrint("Main App: Building theme with brightness: $brightness");
+        debugPrint("Main App: Building theme with brightness: $activeTheme");
         return WebBackButtonDisabler(
           child: AppGoRouterConfig.routeBuilder(
-            currentTheme,
-            AppTheme.dark(themeState.palette),
+            activeTheme,
+            ThemeData.dark(),
             language,
-            themeState.isDarkMode ? ThemeMode.dark : ThemeMode.light,
           ),
         );
       },

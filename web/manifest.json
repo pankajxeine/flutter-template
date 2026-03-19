@@ -1,6 +1,6 @@
 {
-    "name": "block_app",
-    "short_name": "block_app",
+    "name": "forui_template",
+    "short_name": "forui_template",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
